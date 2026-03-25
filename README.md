@@ -1,4 +1,4 @@
-# ACES Bilingual Assessment Website
+# ACES: Adaptive Cognitive Evaluation System for Student Assessment
 
 A bilingual (Chinese + English) prototype website for teacher-completed initial assessment of students, based on the ACES proposal.
 
