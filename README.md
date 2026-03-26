@@ -1,5 +1,8 @@
 # ACES: Adaptive Cognitive Evaluation System for Student Assessment
 
+[![GitHub Pages](https://img.shields.io/github/actions/workflow/status/wjrforcyber/ACES/deploy.yml?branch=main&label=GitHub%20Pages&style=flat-square)](https://wjrforcyber.github.io/ACES/)
+[![Deployment](https://img.shields.io/github/deployments/wjrforcyber/ACES/github-pages?label=Deploy&style=flat-square)](https://github.com/wjrforcyber/ACES/deployments)
+
 A bilingual (Chinese + English) prototype website for teacher-completed initial assessment of students, based on the ACES proposal.
 
 ## Overview
