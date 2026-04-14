@@ -259,6 +259,7 @@ progress {
   margin-top: 0.8rem;
   padding-top: 0.8rem;
   border-top: 1px dashed #bfc8de;
+  font-family: 'Walter Turncoat', cursive;
 }
 
 .question:first-of-type {
@@ -443,31 +444,46 @@ progress {
 }
 
 .image-reference {
-  margin-top: 0.5rem;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: var(--md-ref-radius-md);
+  border: 2px solid var(--md-sys-color-outline-variant);
+  padding: 0.6rem;
+  background: var(--md-sys-color-surface-container);
+  flex: 1 1 0;
+  min-width: 0;
 }
 
 .image-reference-label {
   margin: 0 0 0.3rem;
   font-weight: 700;
   color: var(--md-sys-color-on-surface-variant);
+  font-size: 0.9rem;
 }
 
 .reference-img {
-  max-width: 180px;
-  max-height: 180px;
+  width: 100%;
+  height: auto;
   border-radius: var(--md-ref-radius-sm);
-  border: 2px solid var(--md-sys-color-outline-variant);
 }
 
-.image-options {
-  margin-top: 0.8rem;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 0.8rem;
+.image-compare-question .image-compare-row {
+  margin-top: 0.5rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  gap: 1rem;
+}
+
+.image-compare-question .image-option-caption,
+.image-compare-question .image-reference-label {
+  font-family: 'Walter Turncoat', cursive;
 }
 
 .image-option {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -476,6 +492,8 @@ progress {
   border: 2px solid var(--md-sys-color-outline-variant);
   padding: 0.6rem;
   background: #fff;
+  flex: 1 1 0;
+  min-width: 0;
 }
 
 .image-option:hover {
@@ -489,8 +507,8 @@ progress {
 }
 
 .option-img {
-  max-width: 180px;
-  max-height: 180px;
+  width: 100%;
+  height: auto;
   border-radius: var(--md-ref-radius-sm);
   border: 2px solid transparent;
 }
@@ -532,15 +550,5 @@ progress {
 
   .progress-wrap {
     min-width: 100%;
-  }
-
-  .image-options {
-    grid-template-columns: 1fr;
-  }
-
-  .option-img,
-  .reference-img {
-    max-width: 140px;
-    max-height: 140px;
   }
 }

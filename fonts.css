@@ -1,4 +1,12 @@
 @font-face {
+  font-family: 'Walter Turncoat';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('fonts/WalterTurncoat-Regular.ttf') format('truetype');
+}
+
+@font-face {
   font-family: 'Manrope';
   font-style: normal;
   font-weight: 500;

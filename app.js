@@ -45,7 +45,8 @@
       questionnaire: {
         heading: "评估问卷",
         progressLabel: "完成进度",
-        referenceLabel: "原图"
+        referenceLabel: "原图",
+        referenceCaption: "ORIGINAL"
       },
       result: {
         heading: "评估结果",
@@ -119,7 +120,8 @@
       questionnaire: {
         heading: "Assessment Questionnaire",
         progressLabel: "Progress",
-        referenceLabel: "Original"
+        referenceLabel: "Original",
+        referenceCaption: "ORIGINAL"
       },
       result: {
         heading: "Assessment Result",
@@ -721,24 +723,26 @@
         fieldset.appendChild(legend);
 
         if (question.type === "image-compare") {
+          fieldset.classList.add("image-compare-question");
+          const row = document.createElement("div");
+          row.className = "image-compare-row";
+
           const refWrap = document.createElement("div");
           refWrap.className = "image-reference";
 
-          const refLabel = document.createElement("p");
-          refLabel.className = "image-reference-label";
-          refLabel.textContent = t("questionnaire.referenceLabel");
-
           const refImg = document.createElement("img");
           refImg.src = question.referenceImage;
-          refImg.alt = t("questionnaire.referenceLabel");
+          refImg.alt = t("questionnaire.referenceCaption");
           refImg.className = "reference-img";
 
-          refWrap.appendChild(refLabel);
           refWrap.appendChild(refImg);
-          fieldset.appendChild(refWrap);
 
-          const optGrid = document.createElement("div");
-          optGrid.className = "image-options";
+          const refCaption = document.createElement("span");
+          refCaption.className = "image-option-caption";
+          refCaption.textContent = t("questionnaire.referenceCaption");
+
+          refWrap.appendChild(refCaption);
+          row.appendChild(refWrap);
 
           question.options.forEach((option) => {
             const optLabel = document.createElement("label");
@@ -762,10 +766,10 @@
             optLabel.appendChild(input);
             optLabel.appendChild(img);
             optLabel.appendChild(caption);
-            optGrid.appendChild(optLabel);
+            row.appendChild(optLabel);
           });
 
-          fieldset.appendChild(optGrid);
+          fieldset.appendChild(row);
         } else {
           const options = document.createElement("div");
           options.className = "scale-options";
