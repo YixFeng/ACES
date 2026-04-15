@@ -51,6 +51,7 @@
         jumpHint: "点击题号可跳转到对应问题。",
         exampleLabel: "示例",
         answerPoolLabel: "答案（多选题）",
+        observerLabel: "观察提示",
         referenceLabel: "原图",
         referenceCaption: "ORIGINAL",
         questionPosition: "第 {current} / {total} 题",
@@ -136,6 +137,7 @@
         jumpHint: "Click a question number to jump to it.",
         exampleLabel: "Example",
         answerPoolLabel: "Answers (Select all that apply)",
+        observerLabel: "Observer Note",
         referenceLabel: "Original",
         referenceCaption: "ORIGINAL",
         questionPosition: "Question {current} of {total}",
@@ -574,6 +576,88 @@
         }
       ],
       weightTag: "support"
+    },
+    {
+      id: "Q11",
+      moduleKey: "cognitive",
+      prompt: {
+        zh: "Prompt dependence during picture tasks",
+        en: "Prompt dependence during picture tasks"
+      },
+      observerNote: {
+        zh: "需要评估者根据要求观察受试者。",
+        en: "This item should be rated by the assessor through direct observation."
+      },
+      description: {
+        zh: "Observe whether the child waits for hints, repeated directions, pointing cues, or models before responding.",
+        en: "Observe whether the child waits for hints, repeated directions, pointing cues, or models before responding."
+      },
+      optionLayout: "stacked",
+      optionLabels: [
+        {
+          value: 2,
+          label: {
+            zh: "2分：通常在第一次指令后即可回应，几乎不需要提示",
+            en: "Score 2: usually responds after the first direction, with little or no prompting"
+          }
+        },
+        {
+          value: 1,
+          label: {
+            zh: "1分：经常需要重复指令、手势提示或缩小选项范围",
+            en: "Score 1: often needs repetition, gesture cue, or choice narrowing"
+          }
+        },
+        {
+          value: 0,
+          label: {
+            zh: "0分：在大多数项目上都高度依赖提示",
+            en: "Score 0: depends heavily on prompts on most items"
+          }
+        }
+      ],
+      weightTag: "support"
+    },
+    {
+      id: "Q12",
+      moduleKey: "cognitive",
+      prompt: {
+        zh: "Work behavior and transition readiness during test",
+        en: "Work behavior and transition readiness during test"
+      },
+      observerNote: {
+        zh: "需要评估者根据要求观察受试者。",
+        en: "This item should be rated by the assessor through direct observation."
+      },
+      description: {
+        zh: "Observe whether the child can stay seated, shift between tasks, and finish the short assessment without major refusal or dysregulation.",
+        en: "Observe whether the child can stay seated, shift between tasks, and finish the short assessment without major refusal or dysregulation."
+      },
+      optionLayout: "stacked",
+      optionLabels: [
+        {
+          value: 2,
+          label: {
+            zh: "2分：能持续投入，并在最少支持下完成任务切换",
+            en: "Score 2: stays engaged and transitions between tasks with minimal support"
+          }
+        },
+        {
+          value: 1,
+          label: {
+            zh: "1分：存在轻度困难，但在支持下仍可完成",
+            en: "Score 1: mild difficulty but finishes with support"
+          }
+        },
+        {
+          value: 0,
+          label: {
+            zh: "0分：频繁拒绝、逃避，或无法完成短时评估",
+            en: "Score 0: frequent refusal, escape, or inability to complete the short assessment"
+          }
+        }
+      ],
+      weightTag: "support"
     }
   ];
 
@@ -829,8 +913,8 @@
             }
           });
         }
-      } else if (!Array.isArray(question.optionLabels) || question.optionLabels.length !== 5) {
-        errors.push(`QUESTIONS[${index}].optionLabels must contain 5 options`);
+      } else if (!Array.isArray(question.optionLabels) || question.optionLabels.length < 2) {
+        errors.push(`QUESTIONS[${index}].optionLabels must contain at least 2 options`);
       } else {
         question.optionLabels.forEach((option, optionIndex) => {
           if (typeof option.value !== "number") {
@@ -841,8 +925,8 @@
       }
     });
 
-    if (QUESTIONS.length !== 10) {
-      errors.push(`Expected 10 questions, got ${QUESTIONS.length}`);
+    if (QUESTIONS.length !== 12) {
+      errors.push(`Expected 12 questions, got ${QUESTIONS.length}`);
     }
 
     return errors;
@@ -883,6 +967,32 @@
       legend.className = "question-title";
       legend.textContent = `${question.id}. ${localize(question.prompt)}`;
       fieldset.appendChild(legend);
+
+      if (question.observerNote || question.description) {
+        const context = document.createElement("div");
+        context.className = "question-context";
+
+        if (question.observerNote) {
+          const noteLabel = document.createElement("p");
+          noteLabel.className = "question-context-label";
+          noteLabel.textContent = t("questionnaire.observerLabel");
+          context.appendChild(noteLabel);
+
+          const noteText = document.createElement("p");
+          noteText.className = "question-context-note";
+          noteText.textContent = localize(question.observerNote);
+          context.appendChild(noteText);
+        }
+
+        if (question.description) {
+          const description = document.createElement("p");
+          description.className = "question-context-description";
+          description.textContent = localize(question.description);
+          context.appendChild(description);
+        }
+
+        fieldset.appendChild(context);
+      }
 
       if (question.type === "image-compare") {
         fieldset.classList.add("image-compare-question");
@@ -1069,6 +1179,9 @@
       } else {
         const options = document.createElement("div");
         options.className = "scale-options";
+        if (question.optionLayout === "stacked") {
+          options.classList.add("scale-options--stacked");
+        }
 
         question.optionLabels.forEach((option) => {
           const label = document.createElement("label");
@@ -1212,6 +1325,18 @@
       button.classList.toggle("is-selected", selected);
       button.setAttribute("aria-pressed", selected ? "true" : "false");
     });
+  }
+
+  function getQuestionMaxScore(question) {
+    if (Array.isArray(question.optionLabels) && question.optionLabels.length > 0) {
+      return question.optionLabels.reduce((max, option) => Math.max(max, Number(option.value) || 0), 0);
+    }
+
+    if (question.type === "emotion-grid") {
+      return question.rows.length + 1;
+    }
+
+    return 5;
   }
 
   function getAnsweredCount() {
@@ -1559,7 +1684,7 @@
       sensory: 0
     };
 
-    const moduleCount = {
+    const moduleMax = {
       cognitive: 0,
       communication: 0,
       life: 0,
@@ -1569,12 +1694,12 @@
     QUESTIONS.forEach((question) => {
       const score = Number(answers[question.id]);
       moduleRaw[question.moduleKey] += score;
-      moduleCount[question.moduleKey] += 1;
+      moduleMax[question.moduleKey] += getQuestionMaxScore(question);
     });
 
     const moduleScores = {};
     Object.keys(moduleRaw).forEach((moduleKey) => {
-      const max = moduleCount[moduleKey] * 5;
+      const max = moduleMax[moduleKey];
       moduleScores[moduleKey] = max > 0 ? round1((moduleRaw[moduleKey] / max) * 100) : 0;
     });
 

@@ -371,11 +371,52 @@ progress {
   letter-spacing: normal;
 }
 
+.question-context {
+  margin-top: 0.85rem;
+  padding: 0.9rem;
+  border-radius: var(--md-ref-radius-md);
+  border: 1px solid color-mix(in srgb, var(--md-sys-color-secondary) 25%, white 75%);
+  background: color-mix(in srgb, var(--md-sys-color-secondary-container) 55%, white 45%);
+  font-family: "Manrope", "Noto Sans SC", sans-serif;
+}
+
+.question-context-label {
+  margin: 0 0 0.35rem;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--md-sys-color-secondary);
+}
+
+.question-context-note {
+  margin: 0;
+  font-weight: 700;
+  color: var(--md-sys-color-on-surface);
+}
+
+.question-context-description {
+  margin: 0.45rem 0 0;
+  color: var(--md-sys-color-on-surface-variant);
+  line-height: 1.55;
+}
+
 .scale-options {
   margin-top: 0.55rem;
   display: grid;
   gap: 0.45rem;
   grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+}
+
+.scale-options--stacked {
+  grid-template-columns: 1fr;
+}
+
+.scale-options--stacked .choice span {
+  font-family: "Manrope", "Noto Sans SC", sans-serif;
+  line-height: 1.45;
+  text-transform: none;
+  letter-spacing: normal;
 }
 
 .choice {
