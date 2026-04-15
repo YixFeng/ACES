@@ -31,6 +31,7 @@
         hint: "必填字段不能为空。"
       },
       buttons: {
+        home: "Home",
         start: "开始问卷",
         backToInfo: "返回信息页",
         saveDraft: "保存草稿",
@@ -48,6 +49,8 @@
         heading: "评估问卷",
         progressLabel: "完成进度",
         jumpHint: "点击题号可跳转到对应问题。",
+        exampleLabel: "示例",
+        answerPoolLabel: "答案（多选题）",
         referenceLabel: "原图",
         referenceCaption: "ORIGINAL",
         questionPosition: "第 {current} / {total} 题",
@@ -113,6 +116,7 @@
         hint: "All required fields must be filled."
       },
       buttons: {
+        home: "Home",
         start: "Start Questionnaire",
         backToInfo: "Back to Info",
         saveDraft: "Save Draft",
@@ -130,6 +134,8 @@
         heading: "Assessment Questionnaire",
         progressLabel: "Progress",
         jumpHint: "Click a question number to jump to it.",
+        exampleLabel: "Example",
+        answerPoolLabel: "Answers (Select all that apply)",
         referenceLabel: "Original",
         referenceCaption: "ORIGINAL",
         questionPosition: "Question {current} of {total}",
@@ -330,170 +336,251 @@
     {
       id: "Q3",
       moduleKey: "cognitive",
+      type: "image-match-grid",
       prompt: {
-        zh: "学生能记住并在短时间后复现新学过的课堂流程。",
-        en: "The student can recall and reproduce newly learned classroom procedures after a short delay."
+        zh: "Select the picture that belongs with the first one.",
+        en: "Select the picture that belongs with the first one."
       },
-      optionLabels: SCALE_OPTIONS,
+      stemImage: "resources/images/Q3/Q3-1.png",
+      rows: [
+        {
+          promptImage: "resources/images/Q3/Q3-2.png",
+          options: [
+            { image: "resources/images/Q3/Q3-3.png", isCorrect: true },
+            { image: "resources/images/Q3/Q3-4.png", isCorrect: false }
+          ]
+        },
+        {
+          promptImage: "resources/images/Q3/Q3-5.png",
+          options: [
+            { image: "resources/images/Q3/Q3-6.png", isCorrect: true },
+            { image: "resources/images/Q3/Q3-7.png", isCorrect: false }
+          ]
+        },
+        {
+          promptImage: "resources/images/Q3/Q3-8.png",
+          options: [
+            { image: "resources/images/Q3/Q3-9.png", isCorrect: true },
+            { image: "resources/images/Q3/Q3-10.png", isCorrect: false }
+          ]
+        }
+      ],
       weightTag: "core"
     },
     {
       id: "Q4",
       moduleKey: "cognitive",
+      type: "image-select-pool",
       prompt: {
-        zh: "遇到简单问题时，学生能尝试使用已学方法解决。",
-        en: "When facing simple problems, the student attempts to apply learned strategies."
+        zh: "Select what you would wear.",
+        en: "Select what you would wear."
       },
-      optionLabels: SCALE_OPTIONS,
+      sceneImage: "resources/images/Q4/Q4-1.png",
+      options: [
+        { image: "resources/images/Q4/Q4-2.png", isCorrect: false },
+        { image: "resources/images/Q4/Q4-3.png", isCorrect: true },
+        { image: "resources/images/Q4/Q4-4.png", isCorrect: false },
+        { image: "resources/images/Q4/Q4-5.png", isCorrect: true },
+        { image: "resources/images/Q4/Q4-6.png", isCorrect: true },
+        { image: "resources/images/Q4/Q4-7.png", isCorrect: false }
+      ],
       weightTag: "support"
     },
     {
       id: "Q5",
-      moduleKey: "communication",
+      moduleKey: "cognitive",
+      type: "image-select-pool",
       prompt: {
-        zh: "学生会主动表达需求（口语、手势或替代沟通方式）。",
-        en: "The student initiates communication of needs (speech, gestures, or alternative communication)."
+        zh: "Select what you would wear.",
+        en: "Select what you would wear."
       },
-      optionLabels: SCALE_OPTIONS,
-      weightTag: "core"
+      sceneImage: "resources/images/Q5/Q5-1.png",
+      options: [
+        { image: "resources/images/Q5/Q5-2.png", isCorrect: false },
+        { image: "resources/images/Q5/Q5-3.png", isCorrect: true },
+        { image: "resources/images/Q5/Q5-4.png", isCorrect: true },
+        { image: "resources/images/Q5/Q5-5.png", isCorrect: true },
+        { image: "resources/images/Q5/Q5-6.png", isCorrect: false },
+        { image: "resources/images/Q5/Q5-7.png", isCorrect: false }
+      ],
+      weightTag: "support"
     },
     {
       id: "Q6",
-      moduleKey: "communication",
+      moduleKey: "cognitive",
+      type: "emotion-grid",
       prompt: {
-        zh: "学生能在对话中遵守轮流规则并等待回应。",
-        en: "The student follows turn-taking rules and waits for responses in conversations."
+        zh: "How would you feel?",
+        en: "How would you feel?"
       },
-      optionLabels: SCALE_OPTIONS,
-      weightTag: "core"
+      stemImage: "resources/images/Q6/question.png",
+      rows: [
+        {
+          promptImage: "resources/images/Q6/6.1/1.png",
+          options: [
+            { image: "resources/images/Q6/6.1/happy.png", isCorrect: true },
+            { image: "resources/images/Q6/6.1/sad.png", isCorrect: false }
+          ]
+        },
+        {
+          promptImage: "resources/images/Q6/6.2/2.png",
+          options: [
+            { image: "resources/images/Q6/6.2/happy.png", isCorrect: true },
+            { image: "resources/images/Q6/6.2/sad.png", isCorrect: false }
+          ]
+        },
+        {
+          promptImage: "resources/images/Q6/6.3/3.png",
+          options: [
+            { image: "resources/images/Q6/6.3/happy.png", isCorrect: false },
+            { image: "resources/images/Q6/6.3/sad.png", isCorrect: true }
+          ]
+        },
+        {
+          promptImage: "resources/images/Q6/6.4/4.png",
+          options: [
+            { image: "resources/images/Q6/6.4/happy.png", isCorrect: false },
+            { image: "resources/images/Q6/6.4/sad.png", isCorrect: true }
+          ]
+        }
+      ],
+      weightTag: "support"
     },
     {
       id: "Q7",
-      moduleKey: "communication",
+      moduleKey: "cognitive",
+      type: "image-match-grid",
       prompt: {
-        zh: "学生能理解常见社交情境（如打招呼、道谢、请求帮助）。",
-        en: "The student understands common social scenarios such as greeting, thanking, and asking for help."
+        zh: "Find the Opposite: Select the picture that shows the opposite of the first one.",
+        en: "Find the Opposite: Select the picture that shows the opposite of the first one."
       },
-      optionLabels: SCALE_OPTIONS,
+      stemImage: "resources/images/Q7/question.png",
+      rows: [
+        {
+          promptImage: "resources/images/Q7/Q7-1.png",
+          options: [
+            { image: "resources/images/Q7/Q7-2.png", isCorrect: false },
+            { image: "resources/images/Q7/Q7-3.png", isCorrect: true }
+          ]
+        },
+        {
+          promptImage: "resources/images/Q7/Q7-4.png",
+          options: [
+            { image: "resources/images/Q7/Q7-5.png", isCorrect: true },
+            { image: "resources/images/Q7/Q7-6.png", isCorrect: false }
+          ]
+        },
+        {
+          promptImage: "resources/images/Q7/Q7-7.png",
+          options: [
+            { image: "resources/images/Q7/Q7-8.png", isCorrect: true },
+            { image: "resources/images/Q7/Q7-9.png", isCorrect: false }
+          ]
+        }
+      ],
       weightTag: "support"
     },
     {
       id: "Q8",
-      moduleKey: "communication",
+      moduleKey: "cognitive",
+      type: "image-match-grid-noexample",
       prompt: {
-        zh: "在角色扮演任务中，学生能根据情境作出合适回应。",
-        en: "In role-play tasks, the student can provide context-appropriate responses."
+        zh: "Find the Opposite: Select the picture that shows the opposite of the first one.",
+        en: "Find the Opposite: Select the picture that shows the opposite of the first one."
       },
-      optionLabels: SCALE_OPTIONS,
-      weightTag: "core"
+      rows: [
+        {
+          promptImage: "resources/images/Q8/Q8-1.png",
+          options: [
+            { image: "resources/images/Q8/Q8-2.png", isCorrect: false },
+            { image: "resources/images/Q8/Q8-3.png", isCorrect: true }
+          ]
+        },
+        {
+          promptImage: "resources/images/Q8/Q8-4.png",
+          options: [
+            { image: "resources/images/Q8/Q8-5.png", isCorrect: true },
+            { image: "resources/images/Q8/Q8-6.png", isCorrect: false }
+          ]
+        },
+        {
+          promptImage: "resources/images/Q8/Q8-7.png",
+          options: [
+            { image: "resources/images/Q8/Q8-8.png", isCorrect: false },
+            { image: "resources/images/Q8/Q8-9.png", isCorrect: true }
+          ]
+        }
+      ],
+      weightTag: "support"
     },
     {
       id: "Q9",
-      moduleKey: "life",
+      moduleKey: "cognitive",
+      type: "image-pair-grid",
       prompt: {
-        zh: "学生可独立或在少量提示下完成基本自理（穿衣、洗手、整理）。",
-        en: "The student completes basic self-care (dressing, handwashing, organizing) independently or with minimal prompts."
+        zh: "Select the group that is greater.",
+        en: "Select the group that is greater."
       },
-      optionLabels: SCALE_OPTIONS,
-      weightTag: "core"
+      stemImage: "resources/images/Q9/question.png",
+      rows: [
+        {
+          options: [
+            { image: "resources/images/Q9/Q9-1.png", isCorrect: true },
+            { image: "resources/images/Q9/Q9-2.png", isCorrect: false }
+          ]
+        },
+        {
+          options: [
+            { image: "resources/images/Q9/Q9-3.png", isCorrect: false },
+            { image: "resources/images/Q9/Q9-4.png", isCorrect: true }
+          ]
+        },
+        {
+          options: [
+            { image: "resources/images/Q9/Q9-5.png", isCorrect: false },
+            { image: "resources/images/Q9/Q9-6.png", isCorrect: true }
+          ]
+        }
+      ],
+      weightTag: "support"
     },
     {
       id: "Q10",
-      moduleKey: "life",
-      prompt: {
-        zh: "学生能够完成简单家务或教室值日任务。",
-        en: "The student can complete simple household or classroom duty tasks."
-      },
-      optionLabels: SCALE_OPTIONS,
-      weightTag: "support"
-    },
-    {
-      id: "Q11",
-      moduleKey: "life",
-      prompt: {
-        zh: "在模拟购物/金钱活动中，学生能识别物品与基本金额。",
-        en: "In simulated shopping or money activities, the student identifies items and basic amounts."
-      },
-      optionLabels: SCALE_OPTIONS,
-      weightTag: "core"
-    },
-    {
-      id: "Q12",
-      moduleKey: "life",
-      prompt: {
-        zh: "学生能按步骤完成类岗位任务（领取任务、执行、反馈）。",
-        en: "The student follows a work-like sequence (receive task, execute, report)."
-      },
-      optionLabels: SCALE_OPTIONS,
-      weightTag: "core"
-    },
-    {
-      id: "Q13",
-      moduleKey: "sensory",
-      prompt: {
-        zh: "学生对常见课堂声音、光线和触觉刺激的耐受程度。",
-        en: "The student tolerates common classroom sound, light, and tactile stimuli."
-      },
-      optionLabels: SCALE_OPTIONS,
-      weightTag: "core"
-    },
-    {
-      id: "Q14",
-      moduleKey: "sensory",
-      prompt: {
-        zh: "出现不适时，学生能在提示下使用调节策略（深呼吸、短暂离席等）。",
-        en: "When discomfort appears, the student can use regulation strategies with prompts (e.g., deep breathing, short break)."
-      },
-      optionLabels: SCALE_OPTIONS,
-      weightTag: "support"
-    },
-    {
-      id: "Q15",
-      moduleKey: "sensory",
-      prompt: {
-        zh: "学生在课堂转换环节（开始/结束/换活动）能保持行为稳定。",
-        en: "The student maintains behavioral stability during transitions (start/end/activity change)."
-      },
-      optionLabels: SCALE_OPTIONS,
-      weightTag: "core"
-    },
-    {
-      id: "Q16",
-      moduleKey: "sensory",
-      prompt: {
-        zh: "课堂日程发生小变动时，学生可在支持下接受调整。",
-        en: "The student can accept small routine changes with support."
-      },
-      optionLabels: SCALE_OPTIONS,
-      weightTag: "core"
-    },
-    {
-      id: "Q17",
       moduleKey: "cognitive",
-      type: "image-compare",
+      type: "image-pair-grid",
       prompt: {
-        zh: "圈出比原图更大的图片。",
-        en: "Circle the picture that is bigger than the original one."
+        zh: "Select the group that is greater.",
+        en: "Select the group that is greater."
       },
-      referenceImage: "resources/images/Bug/BugOrigin.png",
-      options: [
+      stemImage: "resources/images/Q10/question.png",
+      rows: [
         {
-          value: 5,
-          image: "resources/images/Bug/BugLarger.png",
-          label: { zh: "图片 A", en: "Image A" }
+          options: [
+            { image: "resources/images/Q10/Q10-1.png", isCorrect: false },
+            { image: "resources/images/Q10/Q10-2.png", isCorrect: true }
+          ]
         },
         {
-          value: 1,
-          image: "resources/images/Bug/BugSmaller.png",
-          label: { zh: "图片 B", en: "Image B" }
+          options: [
+            { image: "resources/images/Q10/Q10-3.png", isCorrect: false },
+            { image: "resources/images/Q10/Q10-4.png", isCorrect: true }
+          ]
+        },
+        {
+          options: [
+            { image: "resources/images/Q10/Q10-5.png", isCorrect: true },
+            { image: "resources/images/Q10/Q10-6.png", isCorrect: false }
+          ]
         }
       ],
-      weightTag: "core"
+      weightTag: "support"
     }
   ];
 
   const dom = {
     docTitle: document.getElementById("doc-title"),
+    brandHome: document.getElementById("brand-home"),
+    homeButton: document.getElementById("home-button"),
     langSwitch: document.getElementById("lang-switch"),
     langButtons: Array.from(document.querySelectorAll(".lang-btn")),
     stepMeta: document.getElementById("step-meta"),
@@ -534,6 +621,8 @@
       assessmentDate: ""
     },
     answers: {},
+    compositeSelections: {},
+    poolSelections: {},
     result: null,
     configValid: true,
     currentQuestionIndex: 0
@@ -541,6 +630,10 @@
 
   function init() {
     const errors = validateConfig();
+
+    if ("scrollRestoration" in window.history) {
+      window.history.scrollRestoration = "manual";
+    }
 
     applyStaticI18n();
     updateLangButtons();
@@ -565,11 +658,8 @@
     updateProgress();
     renderHistory();
 
-    if (Object.keys(state.answers).length > 0 && isMetaComplete(readMetaFromInputs())) {
-      showStep("questionnaire");
-    } else {
-      showStep("meta");
-    }
+    showStep("meta");
+    scrollToStep(dom.stepMeta);
   }
 
   function readLanguage() {
@@ -686,6 +776,59 @@
             assertBilingual(option.label, `QUESTIONS[${index}].options[${optionIndex}].label`, errors);
           });
         }
+      } else if (
+        question.type === "image-match-grid" ||
+        question.type === "emotion-grid" ||
+        question.type === "image-match-grid-noexample" ||
+        question.type === "image-pair-grid"
+      ) {
+        if (
+          question.type !== "image-match-grid-noexample" &&
+          question.type !== "image-pair-grid" &&
+          (!question.stemImage || typeof question.stemImage !== "string")
+        ) {
+          errors.push(`QUESTIONS[${index}] missing stemImage`);
+        }
+        if (!Array.isArray(question.rows) || question.rows.length === 0) {
+          errors.push(`QUESTIONS[${index}].rows must contain at least 1 row`);
+        } else {
+          question.rows.forEach((row, rowIndex) => {
+            if (
+              question.type !== "image-pair-grid" &&
+              (!row.promptImage || typeof row.promptImage !== "string")
+            ) {
+              errors.push(`QUESTIONS[${index}].rows[${rowIndex}].promptImage missing`);
+            }
+            if (!Array.isArray(row.options) || row.options.length !== 2) {
+              errors.push(`QUESTIONS[${index}].rows[${rowIndex}].options must contain exactly 2 options`);
+            } else {
+              row.options.forEach((option, optionIndex) => {
+                if (!option.image || typeof option.image !== "string") {
+                  errors.push(`QUESTIONS[${index}].rows[${rowIndex}].options[${optionIndex}].image missing`);
+                }
+                if (typeof option.isCorrect !== "boolean") {
+                  errors.push(`QUESTIONS[${index}].rows[${rowIndex}].options[${optionIndex}].isCorrect missing`);
+                }
+              });
+            }
+          });
+        }
+      } else if (question.type === "image-select-pool") {
+        if (!question.sceneImage || typeof question.sceneImage !== "string") {
+          errors.push(`QUESTIONS[${index}] missing sceneImage`);
+        }
+        if (!Array.isArray(question.options) || question.options.length === 0) {
+          errors.push(`QUESTIONS[${index}].options must contain at least 1 option`);
+        } else {
+          question.options.forEach((option, optionIndex) => {
+            if (!option.image || typeof option.image !== "string") {
+              errors.push(`QUESTIONS[${index}].options[${optionIndex}].image missing`);
+            }
+            if (typeof option.isCorrect !== "boolean") {
+              errors.push(`QUESTIONS[${index}].options[${optionIndex}].isCorrect missing`);
+            }
+          });
+        }
       } else if (!Array.isArray(question.optionLabels) || question.optionLabels.length !== 5) {
         errors.push(`QUESTIONS[${index}].optionLabels must contain 5 options`);
       } else {
@@ -698,8 +841,8 @@
       }
     });
 
-    if (QUESTIONS.length !== 17) {
-      errors.push(`Expected 17 questions, got ${QUESTIONS.length}`);
+    if (QUESTIONS.length !== 10) {
+      errors.push(`Expected 10 questions, got ${QUESTIONS.length}`);
     }
 
     return errors;
@@ -735,11 +878,6 @@
       const fieldset = document.createElement("fieldset");
       fieldset.className = "question-card";
       fieldset.dataset.questionIndex = String(index);
-
-      const moduleTag = document.createElement("p");
-      moduleTag.className = "question-module";
-      moduleTag.textContent = `${t("questionnaire.moduleLabel")} · ${localize(MODULES[question.moduleKey].name)}`;
-      fieldset.appendChild(moduleTag);
 
       const legend = document.createElement("legend");
       legend.className = "question-title";
@@ -794,6 +932,140 @@
         });
 
         fieldset.appendChild(row);
+      } else if (
+        question.type === "image-match-grid" ||
+        question.type === "emotion-grid" ||
+        question.type === "image-match-grid-noexample" ||
+        question.type === "image-pair-grid"
+      ) {
+        fieldset.classList.add("image-match-question");
+        if (question.type === "emotion-grid") {
+          fieldset.classList.add("emotion-grid-question");
+        }
+        if (question.type === "image-pair-grid") {
+          fieldset.classList.add("image-pair-question");
+        }
+
+        if (question.stemImage) {
+          const stemWrap = document.createElement("div");
+          stemWrap.className = "match-stem";
+
+          if (question.type === "image-match-grid" || question.type === "image-pair-grid") {
+            const stemLabel = document.createElement("span");
+            stemLabel.className = "match-stem-label";
+            stemLabel.textContent = t("questionnaire.exampleLabel");
+            stemWrap.appendChild(stemLabel);
+          }
+
+          const stemImg = document.createElement("img");
+          stemImg.src = question.stemImage;
+          stemImg.alt = `${question.id} stem`;
+          stemImg.className = "match-stem-img";
+
+          stemWrap.appendChild(stemImg);
+          fieldset.appendChild(stemWrap);
+        }
+
+        const grid = document.createElement("div");
+        grid.className = "match-grid";
+
+        question.rows.forEach((rowItem, rowIndex) => {
+          const row = document.createElement("div");
+          row.className = "match-row";
+
+          const rowLabel = document.createElement("div");
+          rowLabel.className = "match-row-label";
+          rowLabel.textContent = `${String.fromCharCode(65 + rowIndex)}.`;
+          row.appendChild(rowLabel);
+
+          if (question.type !== "image-pair-grid") {
+            const promptWrap = document.createElement("div");
+            promptWrap.className = "match-prompt";
+
+            const promptImg = document.createElement("img");
+            promptImg.src = rowItem.promptImage;
+            promptImg.alt = `${question.id} row ${rowIndex + 1} prompt`;
+            promptImg.className = "match-prompt-img";
+
+            promptWrap.appendChild(promptImg);
+            row.appendChild(promptWrap);
+          }
+
+          const options = document.createElement("div");
+          options.className = "match-options";
+
+          rowItem.options.forEach((option, optionIndex) => {
+            const button = document.createElement("button");
+            button.className = question.type === "emotion-grid" ? "match-option emotion-option" : "match-option";
+            button.type = "button";
+            button.dataset.compositeQuestionId = question.id;
+            button.dataset.compositeRowIndex = String(rowIndex);
+            button.dataset.compositeOptionIndex = String(optionIndex);
+            button.setAttribute("aria-pressed", "false");
+            button.setAttribute("aria-label", `${question.id} row ${rowIndex + 1} option ${optionIndex + 1}`);
+
+            const img = document.createElement("img");
+            img.src = option.image;
+            img.alt = `${question.id} row ${rowIndex + 1} option ${optionIndex + 1}`;
+            img.className = "match-option-img";
+            if (question.type === "emotion-grid") {
+              img.classList.add(option.image.includes("/sad.png") ? "emotion-face--sad" : "emotion-face--happy");
+            }
+
+            button.appendChild(img);
+            options.appendChild(button);
+          });
+
+          row.appendChild(options);
+          grid.appendChild(row);
+        });
+
+        fieldset.appendChild(grid);
+      } else if (question.type === "image-select-pool") {
+        fieldset.classList.add("image-pool-question");
+
+        const sceneWrap = document.createElement("div");
+        sceneWrap.className = "pool-scene";
+
+        const sceneImg = document.createElement("img");
+        sceneImg.src = question.sceneImage;
+        sceneImg.alt = `${question.id} scene`;
+        sceneImg.className = "pool-scene-img";
+
+        sceneWrap.appendChild(sceneImg);
+        fieldset.appendChild(sceneWrap);
+
+        const pool = document.createElement("div");
+        pool.className = "answer-pool";
+
+        const poolLabel = document.createElement("p");
+        poolLabel.className = "answer-pool-label";
+        poolLabel.textContent = t("questionnaire.answerPoolLabel");
+        pool.appendChild(poolLabel);
+
+        const poolGrid = document.createElement("div");
+        poolGrid.className = "answer-pool-grid";
+
+        question.options.forEach((option, optionIndex) => {
+          const button = document.createElement("button");
+          button.className = "pool-option";
+          button.type = "button";
+          button.dataset.poolQuestionId = question.id;
+          button.dataset.poolOptionIndex = String(optionIndex);
+          button.setAttribute("aria-pressed", "false");
+          button.setAttribute("aria-label", `${question.id} option ${optionIndex + 1}`);
+
+          const img = document.createElement("img");
+          img.src = option.image;
+          img.alt = `${question.id} option ${optionIndex + 1}`;
+          img.className = "pool-option-img";
+
+          button.appendChild(img);
+          poolGrid.appendChild(button);
+        });
+
+        pool.appendChild(poolGrid);
+        fieldset.appendChild(pool);
       } else {
         const options = document.createElement("div");
         options.className = "scale-options";
@@ -825,6 +1097,123 @@
     updateQuestionNavigation();
   }
 
+  function findQuestion(questionId) {
+    return QUESTIONS.find((question) => question.id === questionId) || null;
+  }
+
+  function getCompositeScore(questionId) {
+    const question = findQuestion(questionId);
+    if (
+      !question ||
+      (question.type !== "image-match-grid" &&
+        question.type !== "emotion-grid" &&
+        question.type !== "image-match-grid-noexample" &&
+        question.type !== "image-pair-grid")
+    ) {
+      return null;
+    }
+
+    const selections = state.compositeSelections[questionId];
+    if (!Array.isArray(selections) || selections.length !== question.rows.length) {
+      return null;
+    }
+
+    const hasAllRows = question.rows.every((_, rowIndex) => Number.isInteger(selections[rowIndex]));
+    if (!hasAllRows) {
+      return null;
+    }
+
+    const correctCount = question.rows.reduce((count, row, rowIndex) => {
+      const optionIndex = selections[rowIndex];
+      return count + (row.options[optionIndex] && row.options[optionIndex].isCorrect ? 1 : 0);
+    }, 0);
+
+    if (question.type === "emotion-grid") {
+      return correctCount + 1;
+    }
+
+    const scoreMap = [1, 2, 4, 5];
+    return scoreMap[correctCount] ?? 1;
+  }
+
+  function syncCompositeQuestionAnswer(questionId) {
+    const score = getCompositeScore(questionId);
+    if (score == null) {
+      delete state.answers[questionId];
+      return;
+    }
+    state.answers[questionId] = score;
+  }
+
+  function applyCompositeSelections(questionId) {
+    const selections = state.compositeSelections[questionId] || [];
+    const buttons = dom.questionnaireForm.querySelectorAll(`[data-composite-question-id="${questionId}"]`);
+
+    buttons.forEach((button) => {
+      const rowIndex = Number(button.dataset.compositeRowIndex);
+      const optionIndex = Number(button.dataset.compositeOptionIndex);
+      const selected = selections[rowIndex] === optionIndex;
+      button.classList.toggle("is-selected", selected);
+      button.setAttribute("aria-pressed", selected ? "true" : "false");
+    });
+  }
+
+  function getPoolScore(questionId) {
+    const question = findQuestion(questionId);
+    if (!question || question.type !== "image-select-pool") {
+      return null;
+    }
+
+    const selections = state.poolSelections[questionId];
+    if (!Array.isArray(selections) || selections.length !== question.options.length) {
+      return null;
+    }
+
+    const hasAnySelection = selections.some((selected) => selected === true);
+    if (!hasAnySelection) {
+      return null;
+    }
+
+    const matchCount = question.options.reduce((count, option, index) => {
+      return count + (Boolean(selections[index]) === option.isCorrect ? 1 : 0);
+    }, 0);
+
+    if (matchCount <= 1) {
+      return 1;
+    }
+    if (matchCount === 2) {
+      return 2;
+    }
+    if (matchCount <= 4) {
+      return 3;
+    }
+    if (matchCount === 5) {
+      return 4;
+    }
+    return 5;
+  }
+
+  function syncPoolQuestionAnswer(questionId) {
+    const score = getPoolScore(questionId);
+    if (score == null) {
+      delete state.answers[questionId];
+      return;
+    }
+    state.answers[questionId] = score;
+  }
+
+  function applyPoolSelections(questionId) {
+    const selections = state.poolSelections[questionId] || [];
+    const buttons = dom.questionnaireForm.querySelectorAll(`[data-pool-question-id="${questionId}"]`);
+
+    buttons.forEach((button) => {
+      const optionIndex = Number(button.dataset.poolOptionIndex);
+      const selected = selections[optionIndex] === true;
+      button.classList.toggle("is-selected", selected);
+      button.setAttribute("aria-pressed", selected ? "true" : "false");
+    });
+  }
+
   function getAnsweredCount() {
     return QUESTIONS.reduce((count, question) => {
       return count + (Number.isFinite(Number(state.answers[question.id])) ? 1 : 0);
@@ -850,6 +1239,14 @@
     state.currentQuestionIndex = nextIndex;
     updateQuestionNavigation();
     hideError(dom.questionnaireError);
+  }
+
+  function syncAnswerState() {
+    state.result = null;
+    updateProgress();
+    updateQuestionNavigation();
+    hideError(dom.questionnaireError);
+    persistDraft();
   }
 
   function updateQuestionNavigation() {
@@ -888,6 +1285,14 @@
   }
 
   function attachEvents() {
+    dom.brandHome.addEventListener("click", () => {
+      resetAssessment();
+    });
+
+    dom.homeButton.addEventListener("click", () => {
+      resetAssessment();
+    });
+
     dom.langButtons.forEach((btn) => {
       btn.addEventListener("click", () => {
         setLanguage(btn.dataset.lang);
@@ -905,6 +1310,8 @@
 
       hideError(dom.metaError);
       state.meta = meta;
+      state.currentQuestionIndex = 0;
+      updateQuestionNavigation();
       persistDraft();
       showStep("questionnaire");
     });
@@ -915,11 +1322,91 @@
         return;
       }
       state.answers[target.name] = Number(target.value);
-      state.result = null;
-      updateProgress();
-      updateQuestionNavigation();
-      hideError(dom.questionnaireError);
-      persistDraft();
+      syncAnswerState();
+    });
+
+    dom.questionnaireForm.addEventListener("pointerdown", (event) => {
+      const target = event.target;
+      if (!(target instanceof Element)) {
+        return;
+      }
+
+      const option = target.closest(".choice, .image-option");
+      if (!option) {
+        return;
+      }
+
+      const input = option.querySelector('input[type="radio"]');
+      if (!(input instanceof HTMLInputElement) || !input.checked) {
+        return;
+      }
+
+      event.preventDefault();
+      input.checked = false;
+      delete state.answers[input.name];
+      syncAnswerState();
+    });
+
+    dom.questionnaireForm.addEventListener("click", (event) => {
+      const target = event.target;
+      if (!(target instanceof Element)) {
+        return;
+      }
+
+      const poolButton = target.closest(".pool-option");
+      if (poolButton instanceof HTMLButtonElement) {
+        const questionId = poolButton.dataset.poolQuestionId;
+        const optionIndex = Number(poolButton.dataset.poolOptionIndex);
+        const question = questionId ? findQuestion(questionId) : null;
+
+        if (!questionId || !question || question.type !== "image-select-pool" || !Number.isInteger(optionIndex)) {
+          return;
+        }
+
+        const currentSelections = Array.isArray(state.poolSelections[questionId])
+          ? [...state.poolSelections[questionId]]
+          : new Array(question.options.length).fill(false);
+
+        currentSelections[optionIndex] = !currentSelections[optionIndex];
+        state.poolSelections[questionId] = currentSelections;
+        syncPoolQuestionAnswer(questionId);
+        applyPoolSelections(questionId);
+        syncAnswerState();
+        return;
+      }
+
+      const button = target.closest(".match-option");
+      if (!(button instanceof HTMLButtonElement)) {
+        return;
+      }
+
+      const questionId = button.dataset.compositeQuestionId;
+      const rowIndex = Number(button.dataset.compositeRowIndex);
+      const optionIndex = Number(button.dataset.compositeOptionIndex);
+      const question = questionId ? findQuestion(questionId) : null;
+
+      if (
+        !questionId ||
+        !question ||
+        (question.type !== "image-match-grid" &&
+          question.type !== "emotion-grid" &&
+          question.type !== "image-match-grid-noexample" &&
+          question.type !== "image-pair-grid") ||
+        !Number.isInteger(rowIndex) ||
+        !Number.isInteger(optionIndex)
+      ) {
+        return;
+      }
+
+      const currentSelections = Array.isArray(state.compositeSelections[questionId])
+        ? [...state.compositeSelections[questionId]]
+        : new Array(question.rows.length).fill(null);
+
+      currentSelections[rowIndex] = currentSelections[rowIndex] === optionIndex ? null : optionIndex;
+      state.compositeSelections[questionId] = currentSelections;
+      syncCompositeQuestionAnswer(questionId);
+      applyCompositeSelections(questionId);
+      syncAnswerState();
     });
 
     dom.questionJumpList.addEventListener("click", (event) => {
@@ -1088,7 +1575,7 @@
     const moduleScores = {};
     Object.keys(moduleRaw).forEach((moduleKey) => {
       const max = moduleCount[moduleKey] * 5;
-      moduleScores[moduleKey] = round1((moduleRaw[moduleKey] / max) * 100);
+      moduleScores[moduleKey] = max > 0 ? round1((moduleRaw[moduleKey] / max) * 100) : 0;
     });
 
     const cog = moduleScores.cognitive;
@@ -1215,6 +1702,10 @@
     const answerItems = QUESTIONS.map((question) => ({
       questionId: question.id,
       score: Number(answers[question.id]),
+      compositeSelections: Array.isArray(state.compositeSelections[question.id])
+        ? state.compositeSelections[question.id]
+        : undefined,
+      poolSelections: Array.isArray(state.poolSelections[question.id]) ? state.poolSelections[question.id] : undefined,
       weightTag: question.weightTag,
       questionText: {
         zh: question.prompt.zh,
@@ -1283,6 +1774,8 @@
     };
 
     state.answers = toAnswerMap(record.answers || []);
+    state.compositeSelections = extractCompositeSelections(record.answers || []);
+    state.poolSelections = extractPoolSelections(record.answers || []);
     state.result = computeResult(state.answers);
     state.currentQuestionIndex = getInitialQuestionIndex();
 
@@ -1318,6 +1811,34 @@
     return {};
   }
 
+  function extractCompositeSelections(answerList) {
+    if (!Array.isArray(answerList)) {
+      return {};
+    }
+
+    return answerList.reduce((acc, answer) => {
+      if (answer && answer.questionId && Array.isArray(answer.compositeSelections)) {
+        acc[answer.questionId] = answer.compositeSelections.map((value) => {
+          return Number.isInteger(value) ? value : null;
+        });
+      }
+      return acc;
+    }, {});
+  }
+
+  function extractPoolSelections(answerList) {
+    if (!Array.isArray(answerList)) {
+      return {};
+    }
+
+    return answerList.reduce((acc, answer) => {
+      if (answer && answer.questionId && Array.isArray(answer.poolSelections)) {
+        acc[answer.questionId] = answer.poolSelections.map((value) => value === true);
+      }
+      return acc;
+    }, {});
+  }
+
   function exportRecord(record) {
     const stamp = (record.timestamp || new Date().toISOString()).slice(0, 19).replace(/[:T]/g, "-");
     const safeStudent = (record.meta?.studentId || "student").replace(/[^\w\u4e00-\u9fa5-]+/g, "_");
@@ -1349,6 +1870,9 @@
     };
 
     state.answers = toAnswerMap(draft.answers || {});
+    state.compositeSelections =
+      draft.compositeSelections && typeof draft.compositeSelections === "object" ? draft.compositeSelections : {};
+    state.poolSelections = draft.poolSelections && typeof draft.poolSelections === "object" ? draft.poolSelections : {};
     if (draft.result && isResultLike(draft.result)) {
       state.result = draft.result;
     }
@@ -1365,6 +1889,19 @@
       radios.forEach((radio) => {
         radio.checked = Number(radio.value) === Number(selected);
       });
+
+      if (
+        question.type === "image-match-grid" ||
+        question.type === "emotion-grid" ||
+        question.type === "image-match-grid-noexample" ||
+        question.type === "image-pair-grid"
+      ) {
+        applyCompositeSelections(question.id);
+      }
+
+      if (question.type === "image-select-pool") {
+        applyPoolSelections(question.id);
+      }
     });
 
     updateQuestionNavigation();
@@ -1391,6 +1928,8 @@
     const draft = {
       meta: readMetaFromInputs(),
       answers: state.answers,
+      compositeSelections: state.compositeSelections,
+      poolSelections: state.poolSelections,
       result: state.result,
       updatedAt: new Date().toISOString()
     };
@@ -1512,6 +2051,36 @@
     dom.stepMeta.hidden = step !== "meta";
     dom.stepQuestionnaire.hidden = step !== "questionnaire";
     dom.stepResult.hidden = step !== "result";
+  }
+
+  function resetAssessment() {
+    state.meta = {
+      studentId: "",
+      teacherName: "",
+      assessmentDate: todayISO()
+    };
+    state.answers = {};
+    state.compositeSelections = {};
+    state.poolSelections = {};
+    state.result = null;
+    state.currentQuestionIndex = 0;
+
+    localStorage.removeItem(STORAGE_KEYS.draft);
+
+    hideError(dom.metaError);
+    hideError(dom.questionnaireError);
+    hideError(dom.configError);
+
+    applyStateToForm();
+    updateProgress();
+    showStep("meta");
+    scrollToStep(dom.stepMeta);
+  }
+
+  function scrollToStep(element) {
+    window.requestAnimationFrame(() => {
+      element.scrollIntoView({ behavior: "auto", block: "start" });
+    });
   }
 
   function showError(el, text) {

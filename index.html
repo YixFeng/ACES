@@ -12,14 +12,18 @@
 
     <header class="topbar" role="banner">
       <div class="topbar__inner">
-        <div class="brand">
+        <button class="brand brand-button" type="button" id="brand-home">
           <p class="brand__eyebrow">ACES</p>
           <h1 class="brand__title" data-i18n="brand.title">自适应认知评估系统</h1>
-        </div>
+        </button>
 
-        <div class="lang-switch" role="group" id="lang-switch" aria-label="Language Switch">
-          <button class="lang-btn" type="button" data-lang="zh" id="lang-zh">中文</button>
-          <button class="lang-btn" type="button" data-lang="en" id="lang-en">English</button>
+        <div class="topbar-actions">
+          <button class="home-btn" type="button" id="home-button" data-i18n="buttons.home">Home</button>
+
+          <div class="lang-switch" role="group" id="lang-switch" aria-label="Language Switch">
+            <button class="lang-btn" type="button" data-lang="zh" id="lang-zh">中文</button>
+            <button class="lang-btn" type="button" data-lang="en" id="lang-en">English</button>
+          </div>
         </div>
       </div>
     </header>
@@ -77,8 +81,8 @@
           <h2 id="questionnaire-heading" data-i18n="questionnaire.heading">评估问卷</h2>
           <div class="progress-wrap">
             <label for="progress-bar" id="progress-label" data-i18n="questionnaire.progressLabel">完成进度</label>
-            <progress id="progress-bar" max="16" value="0">0/16</progress>
-            <span id="progress-text">0 / 16</span>
+            <progress id="progress-bar" max="10" value="0">0/10</progress>
+            <span id="progress-text">0 / 10</span>
           </div>
         </div>
 
